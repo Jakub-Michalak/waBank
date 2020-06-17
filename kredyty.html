@@ -1,0 +1,131 @@
+<html>
+<head>
+  <title>Kredyty - waBank - bank dla ludzi™</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="description" content="waBank SA – bank z hiszpańskiej grupy Banco Motomoto działający w Polsce pod szyldem waBank SA od 2006 roku." />
+  <meta name="keywords" content="konta, kredyty, karty, płatności, przelewy, oszczędności, inwestycje, ubezpieczenia, bankowość" />
+  <meta name="author" content="waBank SA" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+        <a href="index.html">
+          <div class="logo">
+          </div>
+        </a>
+        <div class="navbar">
+          <a href="konta.html"><div class="navbar_item">
+            Konta
+          </div></a>
+          <a href="kredyty.html"><div class="navbar_item">
+            Kredyty
+          </div></a>
+          <a href="karty.html"><div class="navbar_item">
+            Karty
+          </div></a>
+          <a href="inwestycje.html"><div class="navbar_item">
+            Inwestycje
+          </div></a>
+          <a id="a_navbar_login" href="zaloguj.php"><div class="navbar_item" id="navbar_login">
+            Zaloguj
+          </div></a>
+        </div>
+    </div>
+    <div class="content_banner" id="banner_homepage"></div>
+    <div class="content" id="kredyty_content">
+      <h1>Kredyty.</h1></br>
+      <p>Oferujemy kredyty z korzystnym oprocentowaniem i spłatą rat w Twoim tempie.</br></br>
+        Kredyty online pozwalają na szybkie uzyskanie pieniędzy bez zbędnych formalności i ruszania się z domu. Dzięki elastyczności rat, nasza oferta jest szyta na miarę i dostosowana do Twoich potrzeb.
+      </p></br>
+      <h2>Kalkulator kredytowy</h2> <br />
+      <div class="column">
+      <div>
+        <h3>Kwota kredytu</h3>
+        <br />
+        <input id="amount_slider" class="inputs" type="range" min="500" max="150000" step="100" value="1000">
+        <input id="amount_text" class="inputs" type="number" min="500" max="150000" step="100" value="1000">
+      </div>
+      <div>
+        <h3>Ilość rat</h3>
+        <br />
+        <input id="length_slider" class="inputs" type="range" min="3" max="120"  value="12">
+        <input id="length_text" class="inputs" type="number" min="3" max="120" value="12">
+      </div>
+      </div>
+      <div class="column">
+      </br></br>
+      <h3>Miesięczna rata: <span id="instalment"></span> PLN</h3>
+      <h3>Oprocentowanie: <span id="interest"></span> %</h3>
+      <h3>Prowizja: <span id="commission"></span> %</h3>
+      <h3>Całkowity koszt kredytu: <span id="total_cost"></span> PLN</h3>
+    </div>
+    </div>
+</body>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+//zdefiniowanie zmiennych i ich domyślnych wartości
+var amount;
+var length;
+
+let interest = 0.08;
+var commission = 0.1499;
+
+//wyświetlanie zmiennych na stronie
+document.getElementById('interest').innerHTML = interest *100;
+document.getElementById('commission').innerHTML = commission *100;
+
+update();
+
+//przechwytywanie pozycji suwaka i ustawianie zmiennej na jego podstawie
+$('#amount_slider').on('input',function () {
+  var newVal = $(this).val();
+$("#amount_text").val(newVal);
+amount = newVal;
+update();
+});
+
+$('#amount_text').on('input', function(){
+  var newVal = $(this).val();
+$('#amount_slider').val(newVal);
+amount = newVal;
+update();
+});
+
+$('#length_slider').on('input',function () {
+var newVal = $(this).val();
+$("#length_text").val(newVal);
+amount = newVal;
+update();
+});
+
+$('#length_text').on('input', function(){
+  var newVal = $(this).val();
+$('#length_slider').val(newVal);
+amount = newVal;
+update();
+});
+
+function update(){
+  //przechwytywanie wartości z pól tekstowych
+  var amount = document.getElementById("amount_text").value;
+  var length = document.getElementById("length_text").value;
+  //obliczanie i wyświetlanie wyników
+  document.getElementById('instalment').innerHTML = Math.round(((amount / length) + ((length/12)*(1 + interest*amount)/length) + (commission * amount)/length)*100)/100;
+  document.getElementById('total_cost').innerHTML = Math.round((((length/12)*(1 + interest*amount)) + (commission * amount))*100)/100;
+
+
+}
+
+
+</script>
+
+
+  </div>
+</body>
+</html>

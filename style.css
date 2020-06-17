@@ -1,0 +1,231 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  background-color: #121212;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  margin: auto;
+  max-width: 1280px;
+}
+a{
+  color: inherit;
+  text-decoration: inherit;
+}
+h1{
+  font-size: 2.5em;
+  text-align: center;
+}
+h2{
+  font-size: 1.75em;
+  text-align: center;
+}
+h3{
+  font-size: 1.5em;
+}
+p{
+  font-size: 1.4em;
+}
+.divider{
+  height: 3vh;
+}
+.header{
+  box-sizing: border-box;
+
+  position: relative;
+  min-height: 15vh;
+  margin-top: 2.5vh;
+  text-align: center;
+  border:  5px solid #252525;
+  border-bottom: 0px;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  border-radius: 25px 25px 0px 0px;
+  background-size: 200% 200%;
+  animation: gradient 10s ease infinite;
+}
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+.logo{
+  float: left;
+  width: 25%;
+  margin-top: 0px;
+  font-size: 4em;
+  min-height: 15vh;
+  background-image: url("images/logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.navbar{
+  height: 5vh;
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 75%;
+  background: #383838;
+  border-top: 5px solid #252525;
+  border-left: 5px solid #252525;
+  border-radius: 25px 0px 0px 0px;
+}
+.navbar a{
+  position: relative;
+  font-size: 1.5em;
+  flex-grow: 1;
+}
+.navbar a:hover{
+  background: rgba(0,0,0,0.5);
+  border-radius: 25px 25px 0px 0px;
+  transition: background 0.3s ease;
+}
+.navbar_item{
+  height: 100%;
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#a_navbar_login{
+  border-radius: 25px 0px 0px 0px !important;
+}
+.content_banner{
+  width: calc(100% - 10px);
+  height: 25vh;
+  border:  5px solid #252525;
+}
+#banner_homepage
+{
+  background-image: url("images/banner_monopoly.jpg");
+}
+.content{
+  overflow: auto;
+  padding-top: 2.5%;
+  padding-bottom: 2.5%;
+  padding-left: 2.5%;
+  padding-right: 2.5%;
+  background-color: #252525;
+}
+.column{
+  float: left;
+}
+@media screen and (max-width: 720px) {
+  .column{
+    width: 100%;
+  }
+}
+@media screen and (min-width: 720px) {
+  .column{
+    width: 50%;
+  }
+}
+#creditcard{
+  max-width: 90%;
+}
+#mainpageimage{
+  width: 100%;
+  max-height: 100;
+  object-fit: cover;
+  padding-bottom: 2%;
+  padding-top: 2%;
+}
+.error{
+  color: red;
+}
+.login_content{
+  min-height: 70vh;
+  padding-top: 12.5vh;
+  padding-left: 15vw;
+  padding-right: 15vw;
+  background-color: #252525;
+}
+form{
+  font-size: 2em;
+  display: flex;
+  flex-direction: column;
+}
+input[type=text], input[type=password], input[type=number], select{
+  padding: 2vh 2vw 2vh 2vw;
+  box-sizing: border-box;
+  border: 5px solid #00dead;
+  border-radius: 10px;
+  background-color: #383838;
+  color: white;
+  font-size: 1em;
+}
+input[type=text]:focus, input[type=password]:focus, input[type=number]:focus{
+  outline: none;
+}
+input[type=submit]{
+  height: 5vh;
+  width: 15vw;
+  margin: auto;
+  font-size: 0.9em;
+  color: #00dead;
+  background-color: #383838;
+  border-radius: 10px;
+  border: 2px solid #00dead;
+}
+.panel_content{
+  min-height: 77.5vh;
+  padding-top: 5vh;
+  padding-left: 15vw;
+  padding-right: 15vw;
+  background-color: #252525;
+}
+.accent-text{
+  color: #00dead;
+}
+.red-text{
+  color: red;
+}
+select:disabled{
+  background-color: white;
+}
+.transaction-table{
+  width:100%;
+}
+table, th, td{
+  border: 1px solid white;
+  font-size: 1.1em;
+  padding: 1rem;
+}
+.transactionhistory_content{
+  min-height: 77.5vh;
+  padding-top: 5vh;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  background-color: #252525;
+}
+#amount_slider,#length_slider{
+  -webkit-appearance: none;
+  width: 66%;
+  height: 20px;
+  background: #383838;
+}
+.inputs::-webkit-slider-thumb{
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #00dead;
+}
+#kredyty_content{
+  padding-left: 3rem !important;
+  padding-right: 3rem !important;
+}
+#amount_text,#length_text{
+  margin-left: 1em;
+  padding: 1vh 1vw 1vh 1vw !important;
+  border-radius: 5px !important;
+  min-width: 150px;
+}
